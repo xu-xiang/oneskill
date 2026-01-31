@@ -1,95 +1,88 @@
-# OneSkill
+<div align="center">
 
-OneSkill is a discovery and orchestration skill for AI coding agents. It helps agents search for skills, iterate on queries, and then use OpenSkills for installation. For Gemini, OneSkill adds a directory mapping step so installed skills are visible to Gemini CLI.
+# OneSkill Meta-Manager
 
-Inspired by OpenSkills: universal SKILL.md compatibility, agent-first workflows, and progressive disclosure.
+**The universal bridge for AI Agent Skills.**  
+Discover, install, and map capabilities from the OpenSkills registry to your environment.
 
-## What Is OneSkill
+[![](https://img.shields.io/npm/v/oneskill?color=brightgreen)](https://www.npmjs.com/package/oneskill)
+[![](https://img.shields.io/npm/l/oneskill)](LICENSE)
 
-- Discovery layer for skills (search + query refinement).
-- Orchestration guidance for OpenSkills installs.
-- Gemini mapping to `.gemini/skills`.
+[**🇺🇸 English**](README.md) | [**🇨🇳 中文指南**](README_CN.md)
 
-## Quick Start (Gemini)
+</div>
 
-```bash
-npx oneskill search "nuclei"
-```
+---
 
-```bash
-npx openskills install <slug-or-repo>
-```
+## ⚡️ What is OneSkill?
 
-```bash
-npx oneskill map --target gemini
-```
+**OneSkill** is a meta-tool designed for AI Agents (and humans) to easily extend their capabilities. It serves as a search engine and workflow manager for the [OpenSkills](https://github.com/Starttoaster/openskills) ecosystem.
 
-## Install OneSkill as a Skill (Recommended Global)
+While `openskills` handles the raw installation of files, **OneSkill** provides:
+1.  **Intelligent Search**: Find the right tool for the job using natural language or keywords.
+2.  **Workflow Guidance**: A standardized process for Agents to acquire new skills safely.
+3.  **Environment Mapping**: Crucially, it bridges the gap between `openskills` (standard structure) and consumers like **Gemini CLI** (custom structure).
 
-```bash
-npx openskills install <oneskill-repo-or-slug> --global
-```
+## 🚀 Quick Start
+
+You don't need to install it permanently. Just run it with `npx`.
 
 ```bash
-npx oneskill map --target gemini --global
+# Search for a skill (e.g., to browse the web)
+npx oneskill search "puppeteer browser"
+
+# Search for database tools sorted by popularity
+npx oneskill search "database" --sort stars
 ```
 
-## Quick Start (Other Agents)
+## 🛠 Workflow
 
+The standard lifecycle for adding a new capability to your Agent:
+
+1.  **Search**: Find a skill.
+    ```bash
+    npx oneskill search "github integration"
+    ```
+2.  **Install**: Use the standard `openskills` installer.
+    ```bash
+    npx openskills install anthropics/skills
+    ```
+3.  **Map (Important for Gemini)**: If you are using **Gemini CLI**, you must map the installed skills to your configuration.
+    ```bash
+    # Maps installed skills to Gemini's config
+    npx oneskill map --target gemini
+    ```
+
+## 📖 Command Reference
+
+### `search`
+Search the global registry for skills.
 ```bash
-npx oneskill search "<query>"
-npx openskills install <slug-or-repo>
+npx oneskill search <query> [options]
+
+# Options:
+#   --category <name>   Filter by category
+#   --sort <field>      Sort by 'stars', 'created', or 'updated'
+#   --limit <number>    Limit results (default: 10)
 ```
 
-## Why OneSkill
-
-- Agent-native flow: search, refine, confirm, then install with OpenSkills.
-- Gemini support: maps OpenSkills installs into `.gemini/skills`.
-- Minimal surface area: keep installs/updates in OpenSkills to avoid drift.
-
-## How It Works
-
-1. Search the Skills Directory registry with OneSkill.
-2. Agent refines the query if needed and chooses a skill.
-3. Install using OpenSkills (keeps full OpenSkills behavior intact).
-4. If using Gemini, map installed skills into `.gemini/skills`.
-
-## Commands
-
-- `search <query>`: Query the registry and return Agent-friendly JSON.
-- `search` options: `--category <slug>` `--limit <n>` `--offset <n>` `--sort <votes|recent|stars>`
-- `info <slug>`: Fetch skill details and safety signals.
-- `list`: Forward to openskills list.
-- `doctor`: Report detected root and mapped paths.
-- `sync`: Forward to openskills sync (AGENTS.md).
-- `map`: Map installed skills into Gemini directory (uses openskills install locations).
-
-## OpenSkills Compatibility
-
-OpenSkills is the installer and runtime loader for SKILL.md. It writes the skills list into `AGENTS.md`, so any agent that can read `AGENTS.md` can load skills. OneSkill only adds search + Gemini mapping.
-
-- Default installs are project-local in `./.claude/skills` (or `./.agent/skills` with `--universal`).
-- Use `--global` for `~/.claude/skills`.
-
-## Mapping (Gemini)
-
-Map skills installed by OpenSkills into Gemini's directory:
-
+### `map`
+Generates configuration for specific agent environments.
 ```bash
-npx oneskill map --target gemini
+npx oneskill map --target <env>
+
+# Targets:
+#   gemini    Generate/Update Gemini CLI config
 ```
 
-Use `--global` to map global installs and `--universal` for `.agent/skills`.
+### `list`
+List locally mapped skills (wrapper around openskills list).
+```bash
+npx oneskill list
+```
 
-## Logs
+---
 
-- Logs: `ROOT/.oneskill/logs/*.jsonl`
-
-## Safety Defaults
-
-- No interactive prompts; agents must confirm intent before installing.
-- Mapping conflicts are blocked unless `--force-map` is provided.
-
-## Requirements
-
-Node.js >= 20.6.0
+<div align="center">
+  <sub>Built with ❤️ by the OneSkill Community</sub>
+</div>
