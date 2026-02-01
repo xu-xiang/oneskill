@@ -8,6 +8,7 @@ const TARGET_DIRS: Record<TargetEnvironment, string> = {
   gemini: '.gemini/skills',
   claude: '.claude/skills',
   agent: '.agent/skills',
+  qwen: '.qwen/skills',
 };
 
 export interface MapOptions {

@@ -17,9 +17,12 @@ npx openskills install <repository-name>
 ```
 
 ## 3. Environment Mapping (`map`)
-**Required for Gemini users ONLY**
+**Required for Gemini & Qwen users ONLY**
 ```bash
 npx oneskill map --target gemini
+# Or for Qwen Code:
+npx oneskill map --target qwen
+
 # If the skill was installed globally, remember to add --global
 # npx oneskill map --target gemini --global
 ```

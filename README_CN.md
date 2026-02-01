@@ -38,8 +38,10 @@
 # 安装核心工具
 npx openskills install xu-xiang/oneskill --global
 
-# (该步仅 Gemini 用户需要) 将 OneSkill 自身映射到 .gemini
+# (该步仅 Gemini/Qwen 用户需要) 将 OneSkill 自身映射到 .gemini 或 .qwen
 npx oneskill map --target gemini --global
+# 或者 Qwen 用户：
+npx oneskill map --target qwen --global
 ```
 
 ### 第二步：享受 Skill 的无限可能
@@ -121,10 +123,13 @@ npx openskills install <仓库名>
 # 例如: npx openskills install anthropics/skills
 ```
 
-### 3. 🔌 接入环境 (`map`)
-**仅 Gemini 用户需执行
+## 3. 接入环境 (`map`)
+**仅 Gemini 或 Qwen 用户需执行**
 ```bash
 npx oneskill map --target gemini
+# Qwen 用户:
+npx oneskill map --target qwen
+
 # 如果是全局安装的 skill，记得加 --global
 # npx oneskill map --target gemini --global
 ```

@@ -17,9 +17,12 @@ npx openskills install <仓库名>
 ```
 
 ## 3. 接入环境 (`map`)
-**仅 Gemini 用户需执行**
+**仅 Gemini 或 Qwen 用户需执行**
 ```bash
 npx oneskill map --target gemini
+# Qwen 用户:
+npx oneskill map --target qwen
+
 # 如果是全局安装的 skill，记得加 --global
 # npx oneskill map --target gemini --global
 ```

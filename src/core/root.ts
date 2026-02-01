@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'fs';
 import { dirname, join, resolve } from 'path';
 import type { RootDetection } from './types.js';
 
-const MARKER_DIRS = ['.git', '.agent', '.claude', '.gemini', '.codex'];
+const MARKER_DIRS = ['.git', '.agent', '.claude', '.gemini', '.codex', '.qwen'];
 
 function hasOneskillConfig(pkgPath: string): boolean {
   try {

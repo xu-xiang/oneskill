@@ -1,13 +1,15 @@
 # 快速开始
 
-## 第一步：安装 OneSkill (只需一次)
+### 第一步：安装 OneSkill (只需一次)
 
 ```bash
 # 安装核心工具
 npx openskills install xu-xiang/oneskill --global
 
-# (该步仅 Gemini 用户需要) 将 OneSkill 自身映射到 .gemini
+# (该步仅 Gemini/Qwen 用户需要) 将 OneSkill 自身映射到 .gemini 或 .qwen
 npx oneskill map --target gemini --global
+# 或者 Qwen 用户：
+npx oneskill map --target qwen --global
 ```
 
 ## 第二步：享受 Skill 的无限可能

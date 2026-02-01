@@ -1,4 +1,4 @@
-export type TargetEnvironment = 'codex' | 'gemini' | 'claude' | 'agent';
+export type TargetEnvironment = 'codex' | 'gemini' | 'claude' | 'agent' | 'qwen';
 
 export interface SkillListItem {
   schemaVersion: '1';

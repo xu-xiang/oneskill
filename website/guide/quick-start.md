@@ -6,8 +6,10 @@
 # Install the core tool
 npx openskills install xu-xiang/oneskill --global
 
-# (Only required for Gemini users) Map OneSkill itself to .gemini
+# (Only required for Gemini/Qwen users) Map OneSkill itself to .gemini or .qwen
 npx oneskill map --target gemini --global
+# Or for Qwen Code:
+npx oneskill map --target qwen --global
 ```
 
 ## Step 2: Unlock Infinite Possibilities

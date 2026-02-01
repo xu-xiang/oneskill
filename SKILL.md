@@ -36,6 +36,8 @@ Use this skill to discover new capabilities, refine search queries, and streamli
 5. Handle environment-specific setup:
    - **Gemini CLI Users:** `openskills` does not automatically configure Gemini. You MUST run the mapping command after installation:
      - `npx oneskill map --target gemini` (add `--global` if installed globally)
+   - **Qwen Code CLI Users:** `openskills` does not automatically configure Qwen. You MUST run the mapping command after installation:
+     - `npx oneskill map --target qwen` (add `--global` if installed globally)
 6. Security Inspection:
    - Quickly review the installed skill's files (prompts/scripts) for malicious intent (e.g., data exfiltration, mining, backdoors).
    - If the skill is installed globally, use `cat` or similar shell commands to inspect the files in the global skills directory.
@@ -62,7 +64,7 @@ Defaults: Installs are project-local (`./.claude/skills`, or `./.agent/skills` w
 
 - Do not install without explicit user confirmation.
 - Avoid `--force-map` unless the user agrees to overwrite an existing target.
-- Use openskills for installation/updates; OneSkill only searches and maps for Gemini.
-- For Gemini, run `npx oneskill map --target gemini` after installs.
+- Use openskills for installation/updates; OneSkill only searches and maps for Gemini/Qwen.
+- For Gemini/Qwen, run `npx oneskill map --target <env>` after installs.
 - Default install/map is project-local, same as openskills; use `--global` for global installs.
 - When installing OneSkill itself, recommend `--global` so it is available across projects.

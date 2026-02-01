@@ -121,13 +121,14 @@ npx openskills install <repository-name>
 # Example: npx openskills install anthropics/skills
 ```
 
-### 3. 🔌 Environment Mapping (`map`)
-**Required for Gemini users ONLY**
-```bash
-npx oneskill map --target gemini
-# If the skill was installed globally, remember to add --global
-# npx oneskill map --target gemini --global
-```
+3.  **Map (Important for Gemini/Qwen)**: If you are using **Gemini CLI** or **Qwen Code CLI**, you must map the installed skills to your configuration.
+    ```bash
+    # Maps installed skills to Gemini's config
+    npx oneskill map --target gemini
+    
+    # Or for Qwen Code CLI
+    npx oneskill map --target qwen
+    ```
 
 ### 4. 📋 View Installed (`list`)
 ```bash
